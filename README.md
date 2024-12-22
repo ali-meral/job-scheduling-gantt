@@ -2,7 +2,6 @@
 
 This Python script generates a Gantt chart to visualize job schedules across multiple machines. It takes scheduling output data as input and produces a detailed graphical representation of job execution and idle times for each machine. The script also provides key schedule statistics such as the number of jobs, makespan, and total energy consumption.
 
-
 ![Example Gantt Chart](img/example_gantt_chart.png)
 
 ## Input Format
@@ -44,15 +43,14 @@ The script generates:
    - **Makespan** ($C_{max}$): Total duration of the schedule.
    - **Total energy consumption** ($E$): Total energy used (in joules).
    
-   **Energy Formula**:
-        $$
-            E = \sum_{i=1}^m \sum_{j \in J_{m_i}} p_j o_j + \left( m C_{max} - \sum_{i=1}^n p_j \right) o_1
-        $$
-    Where:
-- $p_j$: Processing time of job $j$.
-- $o_j$: Power consumption during execution.
-- $o_1$: Power consumption in the idle state.
+**Energy Formula**:
+E = Σ (p_j * o_j) + (m * C_max - Σ p_j) * o_1
 
+Where:
+- p_j: Processing time of job j.
+- o_j: Power consumption during execution.
+- o_1: Power consumption in the idle state.
+- C_max: Makespan.
 
 ## Example Usage
 
@@ -61,7 +59,6 @@ To use the script, call the `plot_gantt_chart` function with the scheduling data
 plot_gantt_chart(instance_x_output)
 ```
 
-
 ## Purpose
 
-Visualizing job schedules in scenarios where minimizing energy consumption and meeting makespan constraints are critical. It should help users identify idle times, optimize resource allocation and analyze energy efficiency in scheduling problems.
+Visualizing job schedules in scenarios where minimizing energy consumption and meeting makespan constraints are critical. It should help users identify idle times, optimize resource allocation, and analyze energy efficiency in scheduling problems.
